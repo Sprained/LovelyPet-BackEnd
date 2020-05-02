@@ -4,5 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/Sprained/LovelyPet-BackEnd.git",
   "author": "Gabriel Resende <gabriel.almeida.resende@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^7.14.2",
+    "routes": "^2.1.0"
+  }
 }
