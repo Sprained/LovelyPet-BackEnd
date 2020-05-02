@@ -1,0 +1,8 @@
+{
+  "name": "LovelyPet-BackEnd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Sprained/LovelyPet-BackEnd.git",
+  "author": "Gabriel Resende <gabriel.almeida.resende@gmail.com>",
+  "license": "MIT"
+}
