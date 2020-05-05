@@ -3,9 +3,14 @@ const firebase = require('../database/firebase');
 module.exports = {
     async store(req, res){
         await firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password).catch(function(error){
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            return res.json(errorCode, errorMessage)
+            const errorCode = error.code;
+            let errorMessage;
+
+            if(errorCode === "auth/invalid-email") errorMessage = "Email informado é invalido!";
+            if(errorCode === "auth/email-already-in-use") errorMessage = "Já existe uma conta com esse email!";
+            if(errorCode === "auth/weak-password") errorMessage = "Senha muito fraca!";
+            
+            return res.status(400).json(errorMessage)
         });
 
         firebase.auth().onAuthStateChanged(user => {
