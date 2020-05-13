@@ -4,7 +4,6 @@ module.exports = {
     async store(req, res){
         await firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password).catch(function(error){
             const errorCode = error.code;
-            let errorMessage;
 
             if(errorCode === "auth/invalid-email") errorMessage = "Email informado é invalido!";
             if(errorCode === "auth/email-already-in-use") errorMessage = "Já existe uma conta com esse email!";
@@ -20,6 +19,8 @@ module.exports = {
                 number: req.body.number,
                 ddd: req.body.ddd,
                 phone: req.body.phone,
+                cpf: req.body.cpf,
+                ong: true
             });
         });
 

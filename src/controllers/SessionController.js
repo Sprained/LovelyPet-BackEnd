@@ -15,11 +15,10 @@ module.exports = {
     },
     async delete(req, res){
         await firebase.auth().signOut().then(function(){
-            return res.json({message: 'deslogado'});
+            return res.status(200).end();
         }).catch(function(error){
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            return res.json(errorCode, errorMessage)
+            const errorCode = error.code;
+            return res.json(errorCode)
         })
     }
 }
