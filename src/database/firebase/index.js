@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+require('firebase/storage');
 
 const firebaseConfig = {
     apiKey: process.env.API_KEY,
