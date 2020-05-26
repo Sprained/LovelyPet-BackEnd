@@ -1,14 +1,14 @@
 const firebase = require('firebase');
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCQk_Zvwzj8VCyGY47qENyNJP2HzT9Qc5k",
-    authDomain: "lovely-pet-backend.firebaseapp.com",
-    databaseURL: "https://lovely-pet-backend.firebaseio.com",
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTG_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
     projectId: "lovely-pet-backend",
-    storageBucket: "lovely-pet-backend.appspot.com",
-    messagingSenderId: "92228288509",
-    appId: "1:92228288509:web:9ced95252041f895e16394",
-    measurementId: "G-8KCTSFZ5EZ"
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MENSUERMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
