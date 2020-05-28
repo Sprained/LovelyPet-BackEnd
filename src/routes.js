@@ -12,6 +12,7 @@ const DogController = require('./controllers/DogController');
 const CatController = require('./controllers/CatController');
 const SearchController = require('./controllers/SearchController');
 const FileController = require('./controllers/FileController');
+const FavoritesController = require('./controllers/FavoritesController');
 
 const authMiddleware = require('./middlewares/auth');
 const ongMiddleware = require('./middlewares/ong');
@@ -25,6 +26,8 @@ routes.use(authMiddleware);
 routes.get('/dogs', DogController.index);
 routes.get('/cats', CatController.index);
 routes.get('/search', SearchController.index);
+routes.get('/favorites', FavoritesController.index);
+routes.post('/favorites/:petid', FavoritesController.store);
 routes.delete('/session', SessionController.delete);
 
 routes.use(ongMiddleware);
