@@ -14,6 +14,7 @@ const SearchController = require('./controllers/SearchController');
 const FileController = require('./controllers/FileController');
 const FavoritesController = require('./controllers/FavoritesController');
 const NotificationController = require('./controllers/NotificationController');
+const AdoptController = require('./controllers/AdoptController');
 
 const authMiddleware = require('./middlewares/auth');
 const ongMiddleware = require('./middlewares/ong');
@@ -30,7 +31,10 @@ routes.get('/search', SearchController.index);
 routes.get('/favorites', FavoritesController.index);
 routes.get('/notifications', NotificationController.index);
 
+routes.get('/adopts', AdoptController.verify);
+
 routes.post('/favorites/:petid', FavoritesController.store);
+routes.post('/adopts/:petid/:petno', AdoptController.store);
 routes.post('/notifications/:id', NotificationController.update);
 
 routes.delete('/session', SessionController.delete);
