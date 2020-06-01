@@ -8,17 +8,16 @@ module.exports = {
     async verify(req, res){
         const adopts = await Adopt.find();
 
-        adopts.forEach(adopt => {
+        adopts.forEach(async adopt => {
             const { pet, date_end, no } = adopt;
 
             if(isSameDay(date_end, new Date())){
-                firebase.database().ref(no).child(pet).set({
+                await firebase.database().ref(no).child(pet).set({
                     adopted: false
                 });
+                await Adopt.deleteOne({ pet:pet })
             }
         })
-
-        // return res.status(200).json()
     },
     async store(req, res){
         const user = req.uid;

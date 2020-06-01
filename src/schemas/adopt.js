@@ -17,8 +17,6 @@ const AdoptSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-},{
-    timestamps: true
 })
 
 module.exports = mongoose.model('AdoptSchema', AdoptSchema);
