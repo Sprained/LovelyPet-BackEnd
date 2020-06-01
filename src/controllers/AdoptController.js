@@ -6,17 +6,19 @@ const Adopt = require('../schemas/adopt');
 
 module.exports = {
     async verify(req, res){
-        const { pet, date_end, no } = await Adopt.findOne({
-            user: req.uid
-        });
+        const adopts = await Adopt.find();
 
-        if(isSameDay(date_end, new Date())){
-            await firebase.database().ref(no).child(pet).set({
-                adopted: false
-             });
-        }
+        adopts.forEach(adopt => {
+            const { pet, date_end, no } = adopt;
 
-        return res.status(200).json()
+            if(isSameDay(date_end, new Date())){
+                firebase.database().ref(no).child(pet).set({
+                    adopted: false
+                });
+            }
+        })
+
+        // return res.status(200).json()
     },
     async store(req, res){
         const user = req.uid;

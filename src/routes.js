@@ -31,8 +31,6 @@ routes.get('/search', SearchController.index);
 routes.get('/favorites', FavoritesController.index);
 routes.get('/notifications', NotificationController.index);
 
-routes.get('/adopts', AdoptController.verify);
-
 routes.post('/favorites/:petid', FavoritesController.store);
 routes.post('/adopts/:petid/:petno', AdoptController.store);
 routes.post('/notifications/:id', NotificationController.update);
