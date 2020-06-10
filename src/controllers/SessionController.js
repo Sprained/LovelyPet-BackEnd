@@ -9,7 +9,7 @@ module.exports = {
             if(errorCode === "auth/invalid-email" || errorCode === "auth/wrong-password") errorMessage = "Email ou senha incorretos!";
             if(errorCode === "auth/user-not-found") errorMessage = "Email não cadastrado!";
 
-            return res.status(400).json(errorMessage);
+            return res.status(400).json({error: errorMessage});
         });
         return res.json({message: 'logado'})
     },

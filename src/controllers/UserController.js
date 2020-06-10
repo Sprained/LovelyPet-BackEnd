@@ -13,8 +13,8 @@ module.exports = {
             return res.status(400).json(errorMessage)
         });
 
-        firebase.auth().onAuthStateChanged(user => {
-            firebase.database().ref('users/' + user.uid).set({
+        firebase.auth().onAuthStateChanged(async user => {
+            await firebase.database().ref('users/' + user.uid).set({
                 name: req.body.name,
                 address: req.body.address,
                 number: req.body.number,
